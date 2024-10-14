@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        h1 { color: #333; }
+        h2 { color: #666; }
+        .exercise { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        button { margin: 5px; padding: 5px 10px; }
+        input { margin: 5px; padding: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Exercises</h1>
+
+    <div class="exercise">
+        <h2>Exercise 5 & 6: Console.log and Variables</h2>
+        <p>Check the console for output</p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 7: Arithmetic Program</h2>
+        <p>Check the console for output</p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 9: Leap Year Check</h2>
+        <button onclick="checkLeapYear()">Check Leap Year</button>
+        <p id="leapYearResult"></p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 10: Multiplication and Division</h2>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <button onclick="multiply()">Multiply</button>
+        <button onclick="divide()">Divide</button>
+        <p>Result: <span id="result"></span></p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 11: Temperature Conversion</h2>
+        <button onclick="convertTemperature()">Convert Temperature</button>
+        <p id="tempResult"></p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 12: Even or Odd Check</h2>
+        <input type="number" id="evenOddInput" placeholder="Enter a number">
+        <button onclick="checkEvenOdd()">Check Even/Odd</button>
+        <p id="evenOddResult"></p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 13: Largest and Smallest Number</h2>
+        <input type="number" id="num1ForLargest" placeholder="First number">
+        <input type="number" id="num2ForLargest" placeholder="Second number">
+        <input type="number" id="num3ForLargest" placeholder="Third number">
+        <button onclick="findLargestAndSmallest()">Find Largest and Smallest</button>
+        <p id="largestSmallestResult"></p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 15: Factorial Calculation</h2>
+        <input type="number" id="factorialInput" placeholder="Enter a number">
+        <button onclick="calculateFactorial()">Calculate Factorial</button>
+        <p id="factorialResult"></p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 16: Count Vowels and Consonants</h2>
+        <input type="text" id="vowelConsonantInput" placeholder="Enter a string">
+        <button onclick="countVowelsAndConsonants()">Count</button>
+        <p id="vowelConsonantResult"></p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 17: Car Tax Calculator</h2>
+        <input type="number" id="carPriceInput" placeholder="Enter car price">
+        <button onclick="calculateCarTax()">Calculate Tax</button>
+        <p id="carTaxResult"></p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 18: Most Frequent Number</h2>
+        <button onclick="findMostFrequent()">Find Most Frequent Number</button>
+        <p id="mostFrequentResult"></p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 19: Fibonacci Sequence</h2>
+        <input type="number" id="fibonacciInput" placeholder="Enter a number">
+        <button onclick="calculateFibonacci()">Calculate Fibonacci</button>
+        <p id="fibonacciResult"></p>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 20: Days Left Before New Year</h2>
+        <button onclick="calculateDaysLeft()">Calculate Days Left</button>
+        <p id="daysLeftResult"></p>
+    </div>
+
+    <script>
+        // Exercise 5 & 6
+        console.log("Hello, World!");
+        let name = "Batyrkhan";
+        console.log(`My name is ${name}`);
+        let age = 19;
+        console.log(`I am ${age} years old`);
+
+        // Exercise 7
+        let number1 = 163;
+        let number2 = 7;
+        let result = number1 + number2;
+        console.log(`Addition of ${number1} and ${number2} equals to: ${result}`);
+
+        // Exercise 9
+        function checkLeapYear() {
+            const year = prompt("Please, enter a year: ");
+            if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+                document.getElementById('leapYearResult').innerText = "It's a leap year";
+            } else {
+                document.getElementById('leapYearResult').innerText = "It's not a leap year";
+            }
+        }
+
+        // Exercise 10
+        function multiply() {
+            let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+            let result = num1 * num2;
+            document.getElementById('result').innerText = result;
+        }
+
+        function divide() {
+            let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+            if (num2 == 0) {
+                document.getElementById('result').innerText = "Can not divide by zero";
+            } else {
+                let result = num1 / num2;
+                document.getElementById('result').innerText = result;
+            }
+        }
+
+        // Exercise 11
+        function convertTemperature() {
+            let choice = prompt("Type 'F to C' to convert Fahrenheit to Celsius or type 'C to F' to convert Celsius to Fahrenheit: ");
+            if (choice === 'F to C') {
+                let fahrenheit = prompt("Enter a temperature in Fahrenheit: ");
+                let celsius = (fahrenheit - 32) * 5 / 9;
+                document.getElementById('tempResult').innerText = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
+            } else if (choice === "C to F") {
+                let celsius = prompt("Enter a temperature in Celsius: ");
+                let fahrenheit = (celsius * 9 / 5) + 32;
+                document.getElementById('tempResult').innerText = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+            } else {
+                document.getElementById('tempResult').innerText = "Invalid input";
+            }
+        }
+
+        // Exercise 12
+        function checkEvenOdd() {
+            let number = Number(document.getElementById('evenOddInput').value);
+            document.getElementById('evenOddResult').innerText = checkOddEvenNumber(number);
+        }
+
+        function checkOddEvenNumber(number) {
+            if (number % 2 === 0) {
+                return "The number is even";
+            } else {
+                return "The number is odd";
+            }
+        }
+
+        // Exercise 13
+        function findLargestAndSmallest() {
+            let num1 = parseFloat(document.getElementById('num1ForLargest').value);
+            let num2 = parseFloat(document.getElementById('num2ForLargest').value);
+            let num3 = parseFloat(document.getElementById('num3ForLargest').value);
+            
+            checkNumbers(num1, num2, num3);
+        }
+
+        function checkNumbers(num1, num2, num3) {
+            let result = '';
+
+            if (num1 === num2 && num1 === num3) {
+                result = `All the numbers are equal: ${num1}`;
+            } else {
+                let largest, smallest;
+
+                if (num1 >= num2 && num1 >= num3) {
+                    largest = num1;
+                } else if (num2 >= num1 && num2 >= num3) {
+                    largest = num2;
+                } else {
+                    largest = num3;
+                }
+
+                if (num1 <= num2 && num1 <= num3) {
+                    smallest = num1;
+                } else if (num2 <= num1 && num2 <= num3) {
+                    smallest = num2;
+                } else {
+                    smallest = num3;
+                }
+
+                result = `${largest} is the largest, and ${smallest} is the smallest.`;
+            }
+
+            document.getElementById('largestSmallestResult').innerText = result;
+        }
+
+
+        // Exercise 15
+        function calculateFactorial() {
+            let n = parseInt(document.getElementById('factorialInput').value);
+            document.getElementById('factorialResult').innerText = `Factorial of ${n} is ${calculateFactorialFunc(n)}`;
+        }
+
+        function calculateFactorialFunc(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+            return n * calculateFactorialFunc(n - 1);
+        }
+
+        // Exercise 16
+        function countVowelsAndConsonants() {
+            let str = document.getElementById('vowelConsonantInput').value.toLowerCase();
+            let vCount = 0;
+            let cCount = 0;
+            
+            for (let i = 0; i < str.length; i++) {
+                let char = str[i];
+                if ('aeiou'.includes(char)) {
+                    vCount++;
+                } else if (char >= 'a' && char <= 'z') {
+                    cCount++;
+                }
+            }
+            
+            document.getElementById('vowelConsonantResult').innerText = `Vowels: ${vCount}, Consonants: ${cCount}`;
+        }
+
+        // Exercise 17
+        function calculateCarTax() {
+            let carPrice = parseFloat(document.getElementById('carPriceInput').value);
+            let tax;
+            
+            if (carPrice > 10000) {
+                tax = carPrice * 0.25;
+            } else if (carPrice >= 5000 && carPrice <= 10000) {
+                tax = carPrice * 0.20;
+            } else if (carPrice < 5000) {
+                tax = carPrice * 0.15;
+            } else {
+                document.getElementById('carTaxResult').innerText = "Invalid input.";
+                return;
+            }
+            
+            document.getElementById('carTaxResult').innerText = `Your tax is: $${tax.toFixed(2)}`;
+        }
+
+        // Exercise 18
+        function findMostFrequent() {
+            const numbers = [1, 3, 2, 4, 1, 1, 1, 3, 2, 6];
+            const res = findMostFrequentNumber(numbers);
+            document.getElementById('mostFrequentResult').innerText = `The most frequent number is: ${res}`;
+        }
+
+        function findMostFrequentNumber(arr) {
+            let maxCount = 0;
+            let mostFrequentNum = null;
+            for (let i = 0; i < arr.length; i++) {
+                let count = 0;
+                for (let j = 0; j < arr.length; j++) {
+                    if (arr[i] === arr[j]) {
+                        count++;
+                    }
+                }
+                if (count > maxCount) {
+                    maxCount = count;
+                    mostFrequentNum = arr[i];
+                }
+            }
+            return mostFrequentNum;
+        }
+
+        // Exercise 19
+        function calculateFibonacci() {
+            let n = parseInt(document.getElementById('fibonacciInput').value);
+            document.getElementById('fibonacciResult').innerText = `Fibonacci(${n}) = ${fibonacci(n)}`;
+        }
+
+        function fibonacci(n) {
+            if (n <= 1) {
+                return n;
+            } else {
+                return fibonacci(n-1) + fibonacci(n-2);
+            }
+        }
+
+        // Exercise 20
+        function calculateDaysLeft() {
+            document.getElementById('daysLeftResult').innerText = `Days left before New Year: ${countDaysLeftBeforeNewYear()}`;
+        }
+
+        function countDaysLeftBeforeNewYear() {
+            const today = new Date();
+            const newYear = new Date(today.getFullYear() + 1, 0, 1);
+            const difference = newYear - today;
+            return Math.ceil(difference / (1000*60*60*24));
+        }
+    </script>
+</body>
+</html>

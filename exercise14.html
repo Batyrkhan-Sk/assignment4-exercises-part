@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Area Calculation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Triangle Area calculation</h1>
+    <label for="sideA">Enter length of the 1st side (a): </label>
+    <input type="number" id="sideA" required><br><br>
+    
+    <label for="sideB">Enter length of the 2nd side (b): </label>
+    <input type="number" id="sideB" required><br><br>
+
+    <label for="sideC">Enter length of the 3rd side (c): </label>
+    <input type="number" id="sideC" required><br><br>
+
+    <button id="calculateBtn">Calculate Area</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("calculateBtn").addEventListener("click", function() {
+            const a = parseFloat(document.getElementById("sideA").value);
+            const b = parseFloat(document.getElementById("sideB").value);
+            const c = parseFloat(document.getElementById("sideC").value); 
+
+            if (a + b > c && a + c > b && b + c > a){
+                const p = (a+b+c) / 2;
+                const area = Math.sqrt(p*(p-a)*(p-b)*(p-c));
+                document.getElementById("result").innerText = "Area of the triangle: " + area.toFixed(2);
+            } else {
+                document.getElementById("result").innerText = "The given sides do not form a valid triangle.";
+
+            }
+        })
+    </script>
+</body>
+</html>
